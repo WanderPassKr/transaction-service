@@ -16,4 +16,12 @@ public class WebClientConfig {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }
+
+    @Bean(name = "exchangeWebClient")
+    public WebClient exchangeRateServiceWebClient() {
+        return WebClient.builder()
+                .baseUrl("http://localhost:8083") // exchange-rate-service 포트
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .build();
+    }
 }
